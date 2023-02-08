@@ -1,3 +1,4 @@
+import 'package:bringin/view/login_select_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -10,7 +11,18 @@ static const id ="/splashScreen";
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+
+
+@override
+  void initState() {
+   Future.delayed(const Duration(seconds: 2)).then((_) {
+    Navigator.pushReplacementNamed(context, LoginSelectScreeen.id);
+   });
+    super.initState();
+  }
+
   @override
+
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(

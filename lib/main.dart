@@ -1,3 +1,4 @@
+import 'package:bringin/view/login_select_screen.dart';
 import 'package:bringin/view/scplash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
       initialRoute: SplashScreen.id,
       routes: {
         SplashScreen.id: ((context) => const SplashScreen()),
+        LoginSelectScreeen.id: (context) => const LoginSelectScreeen(),
       },
     );
   }
