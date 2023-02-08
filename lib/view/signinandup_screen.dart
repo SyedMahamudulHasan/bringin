@@ -1,3 +1,4 @@
+import 'package:bringin/controller/connection_controller.dart';
 import 'package:bringin/view/widgets/custom_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -86,13 +87,7 @@ class _AuthenticationScreenState extends ConsumerState<AuthenticationScreen> {
                   LengthLimitingTextInputFormatter(13)
                 ],
                             decoration: const  InputDecoration(border: InputBorder.none,),
-      //                              validator: (value){
-      //                               if(value!.isEmpty){
-      // return "Please provide a valid phone number";
-      //                               } else {
-      //                                 
-      //                               }
-      //                              },     
+        
                                     
                                     
                                             ),
@@ -103,8 +98,10 @@ class _AuthenticationScreenState extends ConsumerState<AuthenticationScreen> {
                   ),
                 ),
                 SizedBox(height: size.height*0.06,),
-                ElevatedButton(
-                  onPressed: (){
+               if(ref.watch(connectionProvider).isLoading) 
+               Center(child: CircularProgressIndicator(),)
+               else  ElevatedButton(
+                  onPressed: () async{
                     if(_phoneCtr.text.isEmpty){
       showGeneralToast(fToast, "Please provide a valid phone number");
                     } else {
@@ -114,6 +111,18 @@ class _AuthenticationScreenState extends ConsumerState<AuthenticationScreen> {
                                   } else {
                                     if(_phoneCtr.text.contains(".") || _phoneCtr.text.contains(",") || _phoneCtr.text.contains("-")){
                                       showGeneralToast(fToast, "Invalid phone number format");
+                                    } else {
+                                      
+                                      final isValid = await ref.watch(connectionProvider).getOTP({
+                                        "phone": "0" + _phoneCtr.text.replaceAll(" ", ""),
+                                        "role":"seekers"
+                                      });
+
+                                      if(isValid){
+                                        //navivate
+                                      } else {
+                                      showWarningToast(fToast, "Something went wrong, please try again");
+                                    }
                                     }
                                   }
                     }
@@ -173,3 +182,8 @@ class CustomInputFormatter extends TextInputFormatter {
         selection: TextSelection.collapsed(offset: realTrimOffset));
   }
 }
+
+
+
+
+//bt
