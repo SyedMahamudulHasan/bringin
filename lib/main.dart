@@ -1,3 +1,4 @@
+import 'package:bringin/view/scplash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,8 +15,9 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        fontFamily: "roboto",
       ),
-      //home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const SplashScreen(),
     );
   }
 }
