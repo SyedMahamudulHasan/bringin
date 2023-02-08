@@ -1,4 +1,5 @@
 import 'package:bringin/view/login_select_screen.dart';
+import 'package:bringin/view/otp_screen.dart';
 import 'package:bringin/view/scplash_screen.dart';
 import 'package:bringin/view/signinandup_screen.dart';
 import 'package:flutter/material.dart';
@@ -21,11 +22,12 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: "roboto",
       ),
-      initialRoute: AuthenticationScreen.id,
+      initialRoute: OTPScreen.id,
       routes: {
         SplashScreen.id: ((context) => const SplashScreen()),
         LoginSelectScreeen.id: (context) => const LoginSelectScreeen(),
         AuthenticationScreen.id: (context) => const AuthenticationScreen(),
+        OTPScreen.id:(context) => const OTPScreen(),
       },
     );
   }
