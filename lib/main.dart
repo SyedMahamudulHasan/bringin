@@ -17,7 +17,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: "roboto",
       ),
-      home: const SplashScreen(),
+      initialRoute: SplashScreen.id,
+      routes: {
+        SplashScreen.id: ((context) => const SplashScreen()),
+      },
     );
   }
 }

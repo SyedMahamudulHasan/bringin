@@ -4,7 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
-
+static const id ="/splashScreen";
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 }
